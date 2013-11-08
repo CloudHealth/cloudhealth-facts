@@ -20,8 +20,8 @@ require 'facter/util/memory'
 %w(vmalloctotal vmallocused).each do |fact|
   Facter.add(fact) do
     setcode do
-      name = Facter.fact(fact + "_mb").value
-      Facter::Memory.scale_number(name.to_f, "MB") if name
+      name = Facter.fact(fact + '_mb').value
+      Facter::Memory.scale_number(name.to_f, 'MB') if name
     end
   end
 end
@@ -40,7 +40,7 @@ end
 #  end
 #end
 
-{vmalloctotal_mb: 'VmallocTotal', vmallocused_mb: 'VmallocUsed'}.each do |fact, name|
+{:vmalloctotal_mb => 'VmallocTotal', :vmallocused_mb => 'VmallocUsed'}.each do |fact, name|
   Facter.add(fact) do
     confine :kernel => [ :linux, :'gnu/kfreebsd']
     setcode do

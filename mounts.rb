@@ -30,13 +30,13 @@ Facter.add(:mounts) do
       Filesystem.mounts {|mount|
         s = Filesystem.stat(mount.mount_point)
         mounts << {
-          fs:        mount.name,
-          type:      mount.mount_type,
-          total:     s.blocks * 4096,
-          used:      (s.blocks - s.blocks_free) * 4096,
-          available: s.blocks_available * 4096,
-          mount:     mount.mount_point,
-          options:   mount.options
+          :fs        => mount.name,
+          :type      => mount.mount_type,
+          :total     => s.blocks * 4096,
+          :used      => (s.blocks - s.blocks_free) * 4096,
+          :available => s.blocks_available * 4096,
+          :mount     => mount.mount_point,
+          :options   => mount.options
         }
       }
       JSON.generate mounts
@@ -61,13 +61,13 @@ Facter.add(:mounts) do
         parts = m.match(/^(.+?)\s+(.+?)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+\%|\-)\s+(.+)$/)
         next unless parts.length >= 8
         mounts << {
-          fs:        parts[1],
-          type:      parts[2],
-          total:     parts[3],
-          used:      parts[4],
-          available: parts[5],
-          mount:     parts[7],
-          options:   mount_options[parts[7]]
+          :fs        => parts[1],
+          :type      => parts[2],
+          :total     => parts[3],
+          :used      => parts[4],
+          :available => parts[5],
+          :mount     => parts[7],
+          :options   => mount_options[parts[7]]
         }
       }
       JSON.generate mounts
