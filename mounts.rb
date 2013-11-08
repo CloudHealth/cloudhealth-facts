@@ -13,6 +13,8 @@
 # Author: Steven Frank <steve@cloudhealthtech.com>
 #
 
+require 'json'
+
 has_fs_gem = true
 begin
   require 'sys/filesystem'
@@ -37,13 +39,13 @@ Facter.add(:mounts) do
           options:   mount.options
         }
       }
-      mounts
+      JSON.generate mounts
     end
   else
     confine :kernel => [:linux, :'gnu/kfreebsd']
     setcode do
       output = Facter::Util::Resolution.exec('df -a -P -T -B 1 2>/dev/null').split("\n")
-      return [] if output.length <= 1
+      return JSON.generate(mounts) if output.length <= 1
       mount_options = {}
       begin
         Facter::Util::Resolution.exec('mount 2>/dev/null').split("\n").each {|line|
@@ -68,7 +70,7 @@ Facter.add(:mounts) do
           options:   mount_options[parts[7]]
         }
       }
-      mounts
+      JSON.generate mounts
     end
   end
 end
