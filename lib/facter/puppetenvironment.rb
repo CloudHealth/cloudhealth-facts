@@ -11,7 +11,7 @@
 # Additional Facts for puppet environment
 #
 # Copyright (C) 2013 CloudHealth Tech
-# Author: Steven Frank <steve@cloudhealthtech.com>
+# Author: Steve Frank <steve@cloudhealthtech.com>
 #
 
 Facter.add(:puppetenvironment) do
@@ -20,12 +20,7 @@ Facter.add(:puppetenvironment) do
       require 'puppet'
       Puppet[:environment]
     rescue LoadError
-      #Puppet gem is not installed, so try manually reading
-      begin
-        "fail"
-      rescue
-        nil
-      end
+      #Puppet gem is not installed, so
     end
   end
 end

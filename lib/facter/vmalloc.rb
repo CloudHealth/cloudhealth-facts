@@ -12,7 +12,7 @@
 # Additional Facts for vmalloc usage
 #
 # Copyright (C) 2013 CloudHealth Tech
-# Author: Steven Frank <steve@cloudhealthtech.com>
+# Author: Steve Frank <steve@cloudhealthtech.com>
 #
 
 require 'facter/util/memory'
@@ -25,20 +25,6 @@ require 'facter/util/memory'
     end
   end
 end
-
-#Facter.add("vmalloctotal_mb") do
-#  setcode do
-#    vmalloctotal = Facter::Memory.vmalloc_total
-#    "%.2f" % [vmalloctotal] if vmalloctotal
-#  end
-#end
-#
-#Facter.add("vmallocused_mb") do
-#  setcode do
-#    vmallocused = Facter::Memory.vmalloc_used
-#    "%.2f" % [vmallocused] if vmallocused
-#  end
-#end
 
 {:vmalloctotal_mb => 'VmallocTotal', :vmallocused_mb => 'VmallocUsed'}.each do |fact, name|
   Facter.add(fact) do

@@ -1,0 +1,8 @@
+name    'cloudhealth-facts'
+version '0.0.1'
+source 'git://github.com/CloudHealth/cloudhealth-facts.git'
+author 'Steve Frank <steve@cloudhealthtech.com>'
+license 'MIT'
+summary 'Puppet module for CloudHealth Tech Aggregator'
+description 'Exposes custom facts needed by the Aggregator'
+project_page 'https://github.com/CloudHealth/cloudhealth-facts'

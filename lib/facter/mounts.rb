@@ -10,7 +10,7 @@
 # Additional Facts for mount points
 #
 # Copyright (C) 2013 CloudHealth Tech
-# Author: Steven Frank <steve@cloudhealthtech.com>
+# Author: Steve Frank <steve@cloudhealthtech.com>
 #
 
 require 'json'
