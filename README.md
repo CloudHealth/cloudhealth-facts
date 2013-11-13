@@ -16,6 +16,12 @@ pluginsync = true
 * After a run, you should see the custom facts in `/var/opt/lib/pe-puppet/lib/facter` on the clients
 * Browse to a node in the PE web console and you should see puppetenvironment, mounts, and vmalloc facts
 
+Facts
+----
+
+* Puppet Environment
+* VMAlloc* (from /proc/meminfo)
+* Mounts _(what "filesystems" should have been)_
 
 ### MIT License
 
